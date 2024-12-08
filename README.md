@@ -122,4 +122,12 @@ OBS: Os programas apresentam erros de desenvolvimento, que geraram erro de compi
 
 Analise:
 O sistema funcionou parcialmente, mas apresentou um problema: o Pai conseguiu sacar novamente após o saldo ter sido zerado, o que não deveria ocorrer. Isso sugere que a verificação de saldo insuficiente não está sendo feita corretamente, permitindo que o saque seja repetido mesmo com o saldo zerado. Embora a concorrência esteja parcialmente controlada, é necessário revisar a lógica para garantir que saques não sejam realizados quando o saldo for insuficiente.
- 
+
+ Analise da atividade A04
+ Os dois códigos simulam um estacionamento, mas com abordagens diferentes para controlar o acesso às vagas.
+
+O código Carro usa um Semaphore com 10 permissões, que representa as vagas disponíveis. Quando um carro chega, ele "pega" uma vaga e depois a libera, permitindo que até 10 carros possam usar o estacionamento ao mesmo tempo. Esse código é simples e eficiente, ideal para simular várias vagas.
+
+Já o código CarroLock usa um ReentrantLock, mas com a abordagem de bloquear apenas uma vaga por vez, o que não faz muito sentido para um cenário com múltiplas vagas. Embora o Lock ofereça mais controle sobre o bloqueio (permitindo, por exemplo, tentativas com tempo limite), aqui ele não é a melhor escolha, já que não simula corretamente o controle de várias vagas.
+
+Resumindo, o código Carro é mais adequado para simular um estacionamento com várias vagas, enquanto o CarroLock poderia ser útil em casos onde o controle sobre um único recurso é necessário.
