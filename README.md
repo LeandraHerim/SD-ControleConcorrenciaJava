@@ -119,4 +119,7 @@ liberação de threads em espera será FIFO
 8. Realizar as analises das execuções e incluir o texto no README.md.
 
 OBS: Os programas apresentam erros de desenvolvimento, que geraram erro de compilação. Leia as mensagem e corrigas os problemas. Realize o commit do programa corrigido em seu repositório.
+
+Analise:
+O sistema funcionou parcialmente, mas apresentou um problema: o Pai conseguiu sacar novamente após o saldo ter sido zerado, o que não deveria ocorrer. Isso sugere que a verificação de saldo insuficiente não está sendo feita corretamente, permitindo que o saque seja repetido mesmo com o saldo zerado. Embora a concorrência esteja parcialmente controlada, é necessário revisar a lógica para garantir que saques não sejam realizados quando o saldo for insuficiente.
  
